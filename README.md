@@ -12,6 +12,7 @@ To get started developing right away:
 * start the development server with `npm start`
 * another library needed to implement app routing,
 so to use it run `npm install --save react-router-dom`
+* npm install --save escape-string-regexp
 
 ## What You're Getting
 ```bash
