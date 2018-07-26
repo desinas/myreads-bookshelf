@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import * as BooksAPI from './BooksAPI';
 import Book from './Book.js';
 
@@ -33,7 +34,8 @@ class SearchPage extends Component {
     
     return( <div className="search-books">
       <div className="search-books-bar">
-        <a className="close-search" onClick={() => this.setState({ showSearchPage: false })}>Close</a>
+        <Link to="/" className="close-search" onClick={() => this
+            .setState({ showSearchPage: false })}>Close</Link>
         <div className="search-books-input-wrapper">
 
           <input type="text"
@@ -48,14 +50,18 @@ class SearchPage extends Component {
       </div>
       <div className="search-books-results">
         <ol className="books-grid">
-          {
-            this.state.searchedBooks.map(searchedBook => (
-              <li key={searchedBook.id}>
-                <Book 
-                  book={searchedBook}
-                  moveShelf={this.props.moveShelf} />
-              </li>
-            ) )
+          {this.state.searchedBooks.map(searchedBook => {
+              let shelf = "none"; //this option preselected for unassigned book
+              
+              this.props.books.map(book => (book
+                          .id === searchedBook.id ? 
+                            shelf = book.shelf : '' ) );
+              
+              return ( <li key={searchedBook.id}>
+                        <Book book={searchedBook}
+                            moveShelf={this.props.moveShelf}
+                            currentShelf={shelf} /></li> );
+            })
           }
         </ol>
       </div>
