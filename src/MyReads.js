@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import Book from './Book.js'
+import Shelf from './Shelf.js'
 
 class MyReads extends Component {
   render() {
@@ -13,57 +13,18 @@ class MyReads extends Component {
       </div>
       <div className="list-books-content">
         <div>
-          <div className="bookshelf">
-            <h2 className="bookshelf-title">Currently Reading</h2>
-            <div className="bookshelf-books">
-              <ol className="books-grid">
-              {
-                this.props.books
-                  .filter(book => book.shelf === 'currentlyReading')
-                  .map( book => ( <li key={book.id}>
-                            <Book book={book} 
-                                  changeShelf={this.props.changeShelf} 
-                                  currentShelf='currentlyReading'
-                                  />
-                                  </li> ))
-              }
-              </ol>
-            </div>
-          </div>
-          <div className="bookshelf">
-            <h2 className="bookshelf-title">Want to Read</h2>
-            <div className="bookshelf-books">
-              <ol className="books-grid">
-                {
-                  this.props.books
-                    .filter(book => book.shelf === 'wantToRead')
-                    .map(book => ( <li key={book.id}>
-                            <Book book={book} 
-                                  changeShelf={this.props.changeShelf} 
-                                  currentShelf='wantToRead'
-                                  />
-                                  </li> ))
-                }
-              </ol>
-            </div>
-          </div>
-          <div className="bookshelf">
-            <h2 className="bookshelf-title">Read</h2>
-            <div className="bookshelf-books">
-              <ol className="books-grid">
-              {
-                this.props.books
-                  .filter(book => book.shelf === 'read')
-                  .map(book => ( <li key={book.id}>
-                          <Book book={book} 
-                                changeShelf={this.props.changeShelf} 
-                                currentShelf='read'
-                                />
-                                 </li> ))
-              }
-              </ol>
-            </div>
-          </div>
+          <Shelf books={this.props.books}
+              currentShelf='currentlyReading'
+              bookshelfTitle="Currently Reading"
+              changeShelf={this.props.changeShelf} />
+          <Shelf books={this.props.books}
+              currentShelf='wantToRead'
+              bookshelfTitle="Want to Read"
+              changeShelf={this.props.changeShelf} />
+          <Shelf books={this.props.books}
+              currentShelf='read'
+              bookshelfTitle="Read"
+              changeShelf={this.props.changeShelf} />
         </div>
       </div>
       <div className="open-search">
