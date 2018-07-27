@@ -1,22 +1,21 @@
 # MyReads Bookshelf project
 
-Using the starter template, for the final assessment project, for Udacity's React Fundamentals course, implement on React a bookshelf app. The goal of this template is to save you time by providing a static example of the CSS and HTML markup that may be used, but without any of the React code that is needed to complete the project. If you choose to start with this template, your job will be to add interactivity to the app by refactoring the static code in this template.
+In MyReads Bookshelf project, a bookshelf app was built on React library, that allows the user to select and categorize books have already read, are currently reading, or want to read. The project emphasizes using React to build the application and provides an API server and client library to use in order to persist information as user interact with the application.
 
-Of course, you are free to start this project from scratch if you wish! Just be sure to use [Create React App](https://github.com/facebookincubator/create-react-app) to bootstrap the project.
+Using the [starter template](https://github.com/udacity/reactnd-project-myreads-starter), for Udacity's React Fundamentals course, of Front-EndNDegree, a bookshelf app implementation on React. It is a static example of the CSS and HTML markup that may be used. With this template, the job already done is to add interactivity to the app by refactoring the static code in this template.
 
-## TL;DR
+This template was build using react bootstrapper [Create React App](https://github.com/facebookincubator/create-react-app).
+
+## Local Installing
 
 To get started developing right away:
 
 * install all project dependencies with `npm install`
+* another library needed to implement app routing, so to use it run `npm install --save react-router-dom`
 * start the development server with `npm start`
-* another library needed to implement app routing,
-so to use it run `npm install --save react-router-dom`
-* npm install --save escape-string-regexp
 
 ## What You're Getting
 ```bash
-├── CONTRIBUTING.md
 ├── README.md - This file.
 ├── SEARCH_TERMS.md # The whitelisted short collection of available search terms for you to use with your app.
 ├── package.json # npm package manager file. It's unlikely that you'll need to modify this.
@@ -25,18 +24,22 @@ so to use it run `npm install --save react-router-dom`
 │   └── index.html # DO NOT MODIFY
 └── src
     ├── App.css # Styles for your app. Feel free to customize this as you desire.
-    ├── App.js # This is the root of your app. Contains static HTML right now.
-    ├── App.test.js # Used for testing. Provided with Create React App. Testing is encouraged, but not required.
+    ├── App.js # This is the root of your app. React main component.
+    ├── App.test.js # Used for testing. Provided with Create React App.
+    ├── Book.js # React component to display books on shelves.
     ├── BooksAPI.js # A JavaScript API for the provided Udacity backend. Instructions for the methods are below.
     ├── icons # Helpful images for your app. Use at your discretion.
     │   ├── add.svg
     │   ├── arrow-back.svg
     │   └── arrow-drop-down.svg
     ├── index.css # Global styles. You probably won't need to change anything here.
-    └── index.js # You should not need to modify this file. It is used for DOM rendering only.
+    └── index.js # It is used for DOM rendering. Browser Routing added.
+    ├── MyReads.js # React component for the main page of the application.
+    ├── Shelf.js # React component for every self of the bookshelf app.
+    ├── TitleSearcher.js # React component for searching and display results.
 ```
 
-Remember that good React design practice is to create new JS files for each component and use import/require statements to include them where they are needed.
+Good React design practice is to create new JS files for each component and use import/require statements to include them where they are needed. The application is structured in a basic degree. 
 
 ## Backend Server
 
