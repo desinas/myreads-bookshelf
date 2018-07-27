@@ -26,7 +26,7 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.books); //test on dev
+    // console.log(this.state.books); //test on dev
 
     return (
       <div className="app">
