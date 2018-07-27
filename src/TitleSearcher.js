@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import * as BooksAPI from './BooksAPI';
-import Book from './Book.js';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+
+import * as BooksAPI from './BooksAPI'
+import Book from './Book.js'
 
 class SearchPage extends Component {
   state = {
@@ -59,7 +60,7 @@ class SearchPage extends Component {
               
               return ( <li key={searchedBook.id}>
                         <Book book={searchedBook}
-                            moveShelf={this.props.moveShelf}
+                            changeShelf={this.props.changeShelf}
                             currentShelf={shelf} /></li> );
             })
           }

@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import Book from './Book.js';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
-class MainPage extends Component {
+import Book from './Book.js'
+
+class MyReads extends Component {
   render() {
     console.log(this.props.books); //test on dev
 
@@ -21,7 +22,7 @@ class MainPage extends Component {
                   .filter(book => book.shelf === 'currentlyReading')
                   .map( book => ( <li key={book.id}>
                             <Book book={book} 
-                                  moveShelf={this.props.moveShelf} 
+                                  changeShelf={this.props.changeShelf} 
                                   currentShelf='currentlyReading'
                                   />
                                   </li> ))
@@ -38,7 +39,7 @@ class MainPage extends Component {
                     .filter(book => book.shelf === 'wantToRead')
                     .map(book => ( <li key={book.id}>
                             <Book book={book} 
-                                  moveShelf={this.props.moveShelf} 
+                                  changeShelf={this.props.changeShelf} 
                                   currentShelf='wantToRead'
                                   />
                                   </li> ))
@@ -55,7 +56,7 @@ class MainPage extends Component {
                   .filter(book => book.shelf === 'read')
                   .map(book => ( <li key={book.id}>
                           <Book book={book} 
-                                moveShelf={this.props.moveShelf} 
+                                changeShelf={this.props.changeShelf} 
                                 currentShelf='read'
                                 />
                                  </li> ))
@@ -72,4 +73,4 @@ class MainPage extends Component {
   }
 }
 
-export default MainPage;
+export default MyReads;
