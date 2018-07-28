@@ -15,26 +15,28 @@ class MyReads extends Component {
   render() {
     // console.log(this.props.books); //test on dev
 
+    const { books, changeShelf } = this.props; //destructuring assignment
+
     return( <div className="list-books">
       <div className="list-books-title">
         <h1>MyReads</h1>
       </div>
       <div className="list-books-content">
         <div>
-          <Shelf books={this.props.books}
+          <Shelf books={books}
               currentShelf='currentlyReading'
               bookshelfTitle="Currently Reading"
-              changeShelf={this.props.changeShelf} />
+              changeShelf={changeShelf} />
 
-          <Shelf books={this.props.books}
+          <Shelf books={books}
               currentShelf='wantToRead'
               bookshelfTitle="Want to Read"
-              changeShelf={this.props.changeShelf} />
+              changeShelf={changeShelf} />
 
-          <Shelf books={this.props.books}
+          <Shelf books={books}
               currentShelf='read'
               bookshelfTitle="Read"
-              changeShelf={this.props.changeShelf} />
+              changeShelf={changeShelf} />
 
         </div>
       </div>

@@ -18,11 +18,13 @@ class App extends React.Component {
   }
 
   changeShelf = (book, shelf) => {
-    BooksAPI.update(book, shelf);
-
-    BooksAPI.getAll().then((books) => {
-      this.setState({ books: books }) //implicity change state
+    BooksAPI.update(book, shelf).then( () => { //chained with then
+      BooksAPI.getAll().then((books) => {     //so will exec after
+        this.setState({ books: books })      //the first resolved
+      })
     })
+
+    
   }
 
   render() {

@@ -41,12 +41,26 @@ class SearchPage extends Component {
         if (searchedBooks.error) {
           this.setState({ searchedBooks: [] });
         } else {
-        this.setState({ searchedBooks: searchedBooks });
+        this.setState({ searchedBooks }); //ES6 shorthand syntax
         }
       })
     } else {
       this.setState({ searchedBooks: [] });
     }
+  }
+
+  searchBooks() {
+    return this.state.searchedBooks.map(searchedBook => {
+      let shelf = "none"; //this option preselected for unassigned book
+      this.props.books.map(book => (book
+        .id === searchedBook.id ?
+        shelf = book.shelf : ''));
+      return (<li key={searchedBook.id}>
+        <Book book={searchedBook}
+              changeShelf={this.props.changeShelf}
+              currentShelf={shelf} />
+      </li>);
+    });
   }
 
   render() {
@@ -65,23 +79,13 @@ class SearchPage extends Component {
       </div>
       <div className="search-books-results">
         <ol className="books-grid">
-          {this.state.searchedBooks.map(searchedBook => {
-              let shelf = "none"; //this option preselected for unassigned book
-              
-              this.props.books.map(book => (book
-                          .id === searchedBook.id ? 
-                            shelf = book.shelf : '' ) );
-              
-              return ( <li key={searchedBook.id}>
-                        <Book book={searchedBook}
-                            changeShelf={this.props.changeShelf}
-                            currentShelf={shelf} /></li> );
-            })
+          {this.searchBooks()
           }
         </ol>
       </div>
     </div> );
   }
+
 }
 
 export default SearchPage
