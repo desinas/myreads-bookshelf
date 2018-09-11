@@ -6,7 +6,6 @@ import MyReads from './MyReads'
 import TitleSearcher from './TitleSearcher'
 import './App.css'
 
-const baseUrl = process.env.PUBLIC_URL;
 
 class App extends React.Component {
   state = {
@@ -31,20 +30,18 @@ class App extends React.Component {
 
   render() {
     // console.log(this.state.books); //test on dev
-    console.log("This is the process.env", process.env.PUBLIC_URL)
+    // console.log("This is the process.env", process.env.PUBLIC_URL)
 
     return (
       <div className="app">
       
-      <Route exact path={baseUrl + "/"} render={ () => (<MyReads 
+      <Route exact path={"/"} render={ () => (<MyReads 
           books={this.state.books}
-            baseUrl={baseUrl}
               changeShelf={this.changeShelf} />) } />
       
-      <Route path={baseUrl + "/search"} render={ () => (<TitleSearcher 
+      <Route path={"/search"} render={ () => (<TitleSearcher 
           changeShelf={this.changeShelf}
-          books={this.state.books}
-          baseUrl={baseUrl} />) } />
+          books={this.state.books} />) } />
 
       </div>
     )
