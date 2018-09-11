@@ -1,4 +1,4 @@
-# MyReads Bookshelf project (published at netlify)
+# MyReads Bookshelf [project](https://myreads-bookshelf.netlify.com)
 
 In MyReads Bookshelf project, a bookshelf app was built on React library, that allows the user to select and categorize books have already read, are currently reading, or want to read. The project emphasizes using React to build the application and provides an API server and client library to use in order to persist information as user interact with the application.
 
